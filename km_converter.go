@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-const milesToKM = 1.60934
+const milesToKM = 1.60mv 934
 
 func main() {
 
