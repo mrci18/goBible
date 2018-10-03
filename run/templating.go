@@ -2,25 +2,34 @@ package main
 
 import (
 	"fmt"
+	"os"
+	"log"
+	"strings"
 )
 
 func main() {
-	x := 42
-	fmt.Println(x)
-	fmt.Printf("%T\n", x)
-	fmt.Println(&x)
+	name := "Charles"
+	str := fmt.Sprint(`<!DOCTYPE html>
+	<html lang="en">
+	<head>
+	<meta charset="UTF-8">
+	<title>Hello World!</title>
+	</head>
+	<body>
+	<h1>
+		`  + name + `
+	</h1>
+	</body>
 
+	</html>
+	`)
 
-	//Pointer to an int, *type
-	y := &x
-	fmt.Println(y)
-	fmt.Printf("%T\n", y)
-	//No longer want the refenrence, want the value 
-	fmt.Println(*y)
+	nf, err := os.Create("index.html")
+	if err != nil {
+		log.Fatal("Error creating file", err)
+	}
+	defer nf.Close()
 
-	*y = 43
-
-	fmt.Println(x)
-	
+	io.Copy(nf, strings.NewReader(str))
 }
 
