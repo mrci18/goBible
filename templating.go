@@ -33,5 +33,9 @@ func main() {
 	defer nf.Close()
 
 	io.Copy(nf, strings.NewReader(str))
+
+	//Delete
+	fmt.Printf("str is of type ====== %T\n", str)
+	fmt.Printf("str is of type ====== %T\n", strings.NewReader(str))
 }
 
