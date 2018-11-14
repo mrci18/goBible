@@ -5,9 +5,12 @@
 	<title>Default</title>
 	</head>
 	<body>
-	<h1>
-		Data to be passed in {{.}}
-	</h1>
+    Range over ints being passed
+	<ul>
+    {{range .}}
+    <li>{{.}}</li>
+    {{end}}
+    </ul>
 	</body>
 
 	</html>

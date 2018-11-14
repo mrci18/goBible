@@ -21,20 +21,21 @@ func main() {
 
 	defer f1.Close()
 
-	f2, err := os.Create("default.html")
-	if err != nil {
-		log.Fatal("f1 errored", err)
-	}
+	// f2, err := os.Create("about.html")
+	// if err != nil {
+	// 	log.Fatal("f2 errored", err)
+	// }
 
-	defer f2.Close()
+	// defer f2.Close()
 
 	xi := []int{7, 8, 9, 125, 245,}
-	err = tpl.ExecuteTemplate(f1, "default.gohtml", "Charles")
+	
+	err = tpl.ExecuteTemplate(f1, "default.gohtml", xi)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	err = tpl.ExecuteTemplate(f1, "about.gohtml", xi)
+	err = tpl.ExecuteTemplate(f1, "about.gohtml", "Charles")
 	if err != nil {
 		log.Fatal(err)
 	}
